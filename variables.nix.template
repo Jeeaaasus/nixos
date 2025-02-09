@@ -1,0 +1,32 @@
+# Template for "variables.nix"
+{
+  ## Required variables
+  system = "x86_64-linux";
+  locale-default = "en_US.UTF-8";
+  hostname = "";
+  username = "";
+  webdomain = "";
+  git-username = "";
+  git-email = "";
+  ceph-ip = "";
+  ceph-username = "";
+  ceph-directory1 = "";
+  ceph-filesystem1 = "";
+  ceph-directory2 = "";
+  ceph-filesystem2 = "";
+
+  ## Optional variables
+  # timezone = "Europe/Stockholm";
+  # console-keymap = "sv-latin1";
+  # keyboard-layout = "se";
+  # keyboard-variant = "";
+  # locale-address = "";
+  # locale-identification = "";
+  # locale-measurement = "";
+  # locale-monetary = "";
+  # locale-name = "";
+  # locale-numeric = "";
+  # locale-paper = "";
+  # locale-telephone = "";
+  # locale-time = "";
+}
