@@ -1,0 +1,24 @@
+[
+  {
+      "input_combination": [
+          {
+              "type": 1,
+              "code": 29,
+              "origin_hash": "70c53dee3bda396acc1cadbab9f48524"
+          },
+          {
+              "type": 1,
+              "code": 56,
+              "origin_hash": "70c53dee3bda396acc1cadbab9f48524"
+          },
+          {
+              "type": 1,
+              "code": 47,
+              "origin_hash": "70c53dee3bda396acc1cadbab9f48524"
+          }
+      ],
+      "target_uinput": "keyboard",
+      "output_symbol": "key_down(Shift_L).\nkey_down(KEY_ENTER).\nkey_up(KEY_ENTER).\nwait(10).\nkey_down(dead_acute).\nkey_up(dead_acute).\nwait(10).\nkey_down(dead_acute).\nkey_up(dead_acute).\nwait(10).\nkey_down(dead_acute).\nkey_up(dead_acute).\nwait(10).\nkey_down(dead_acute).\nkey_up(dead_acute).\nwait(10).\nkey_down(dead_acute).\nkey_up(dead_acute).\nwait(10).\nkey_down(dead_acute).\nkey_up(dead_acute).\nwait(10).\nkey_down(KEY_ENTER).\nkey_up(KEY_ENTER).\nkey_up(Shift_L).\nwait(10).\nkey_down(Control_L).\nkey_down(v).\nkey_up(v).\nkey_up(Control_L).\nwait(10).\nkey_down(Shift_L).\nkey_down(KEY_ENTER).\nkey_up(KEY_ENTER).\nwait(10).\nkey_down(dead_acute).\nkey_up(dead_acute).\nwait(10).\nkey_down(dead_acute).\nkey_up(dead_acute).\nwait(10).\nkey_down(dead_acute).\nkey_up(dead_acute).\nwait(10).\nkey_down(dead_acute).\nkey_up(dead_acute).\nwait(10).\nkey_down(dead_acute).\nkey_up(dead_acute).\nwait(10).\nkey_down(dead_acute).\nkey_up(dead_acute).\nwait(10).\nkey_down(KEY_ENTER).\nkey_up(KEY_ENTER).\nkey_up(Shift_L).",
+      "mapping_type": "key_macro"
+  }
+]
