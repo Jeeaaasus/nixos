@@ -1,0 +1,29 @@
+# Rename file to "variables.nix"
+{
+  system = "";
+  hostname = "";
+  username = "";
+  webdomain = "";
+  timezone = "";
+  console-keymap = "";
+  keyboard-layout = "";
+  keyboard-variant = "";
+  locale-default = "";
+  locale-address = "";
+  locale-identification = "";
+  locale-measurement = "";
+  locale-monetary = "";
+  locale-name = "";
+  locale-numeric = "";
+  locale-paper = "";
+  locale-telephone = "";
+  locale-time = "";
+  git-username = "";
+  git-email = "";
+  ceph-ip = "";
+  ceph-username = "";
+  ceph-directory1 = "";
+  ceph-filesystem1 = "";
+  ceph-directory2 = "";
+  ceph-filesystem2 = "";
+}
