@@ -113,6 +113,7 @@
       vim
       git
       ceph-client
+      bottles
     ]);
 
   services = {
