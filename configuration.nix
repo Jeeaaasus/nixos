@@ -112,6 +112,7 @@
     (with inputs.pkgs-stable.legacyPackages.${vars.system}; [
       vim
       git
+      hwinfo
       ceph-client
       bottles
     ]);
