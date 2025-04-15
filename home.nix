@@ -200,6 +200,7 @@
       shellAliases = {
         rebuild = ''cd ~/nix && sudo nixos-rebuild switch --flake path:.'';
         update = ''cd ~/nix && nix flake update --flake . && sudo nixos-rebuild switch --flake path:. && git add flake.lock && git commit -m "$(date +'%Y%m%d')"'';
+        gs = ''git status'';
       };
       bashrcExtra = ''
         export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
