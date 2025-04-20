@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745071558,
-        "narHash": "sha256-bvcatss0xodcdxXm0LUSLPd2jjrhqO3yFSu3stOfQXg=",
+        "lastModified": 1745128386,
+        "narHash": "sha256-xnNxL9lZC5Ez8AxTgHZZu8pYSNM34+5GD5jGSs8Vq4M=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "9676e8a52a177d80c8a42f66566362a6d74ecf78",
+        "rev": "f98314bb064cf8f8446c44afbadaaad2505875a7",
         "type": "github"
       },
       "original": {
@@ -55,7 +55,7 @@
     "pkgs-clamav-patch": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-F7YjZpwenwf+1BYfU7Fk7RdmIdQO+E03cxknPDg228E=",
+        "narHash": "sha256-u9/+ZUW7wrJy9rwN4V46muOQjjTH6EkFvpJrpOaUG2Y=",
         "type": "file",
         "url": "https://github.com/NixOS/nixpkgs/pull/375635.patch"
       },
