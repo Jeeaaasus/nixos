@@ -127,9 +127,9 @@
     #   updater.enable = true;
     #   clamonacc.enable = true;
     #   daemon.settings = {
-    #       OnAccessPrevention = true;
-    #       OnAccessIncludePath = "/home/${vars.username}";
-    #       OnAccessIncludePath = "${vars.ceph-directory1}/download";
+    #     OnAccessPrevention = true;
+    #     OnAccessIncludePath = "/home/${vars.username}";
+    #     OnAccessIncludePath = "${vars.ceph-directory1}/download";
     #   };
     # };
 

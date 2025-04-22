@@ -168,7 +168,7 @@
       # mouse-actions-gui
       # wtype
       # dotool
-      kubectl
+      # kubectl
       lutris
       wine
       kdePackages.kcalc
