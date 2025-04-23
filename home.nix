@@ -177,6 +177,7 @@
       lact
       fabric-ai
       obsidian
+      openssl
     ])
 
     ++
@@ -206,6 +207,11 @@
         export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
       '';
       initExtra = ''
+        # CHECK REMOTE SSL CERTIFICATE
+        function ssl-check () {
+          if [ -z "$1" ]; then echo 'usage: <url> [port] (default: 443)'; echo 'You need to provide a URL to connect to.'; return 1; fi
+          echo | openssl s_client -connect "''${1}:''${2:-443}" 2> /dev/null | openssl x509 -subject -noout -dates
+        }
         # VSCODE OPEN REMOTE FOLDER
         function coderemote () {
           if [ -z "$1" ]; then echo 'usage: <hostname> [remote-path] (default: your home folder)'; echo 'You need to provide hostname/IP to connect to.'; return 1; fi
