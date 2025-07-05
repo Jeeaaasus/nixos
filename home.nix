@@ -131,6 +131,8 @@
       caligula                   # disk imaging CLI tool
       mission-center             # general resource overview application
       nvtopPackages.full         # graphics resource overview application
+      cpu-x                      # system information overview application
+      devtoolbox                 # general conversion application
       firefox                    # web browser application
       brave                      # web browser application
       discord-canary             # chat application
