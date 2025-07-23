@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, vars, ... }:
+{ pkgs, inputs, vars, ... }:
 
 {
   system.stateVersion = "24.11";
@@ -17,7 +17,7 @@
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
-  # boot.loader.timeout = 30;
+  boot.loader.timeout = 10;
   boot.loader.systemd-boot = {
     enable = true;
     configurationLimit = 32;
@@ -25,13 +25,11 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.kernelModules = [
-    "amdgpu"
-  ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
-  boot.kernelParams = [
-    "ipv6.disable=1"
-  ];
+  boot.kernelModules = [ "ceph" ];
+
+  boot.kernelParams = [ "ipv6.disable=1" ];
 
   services.xserver.xkb = {
     layout = if (vars ? keyboard-layout) && vars.keyboard-layout != "" then vars.keyboard-layout else "se";
@@ -63,14 +61,17 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
-  #  jack.enable = true;  # If you want to use JACK applications
   };
   security.rtkit.enable = true;
 
   users.users.${vars.username} = {
     isNormalUser = true;
     description = "${vars.username}";
-    extraGroups = [ "networkmanager" "wheel" "input" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+    ];
     openssh.authorizedKeys.keys = [
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9OScqsLoVi4C/tf3L8f8eU7GtgJlPTckoQH6+pn84c12t9DsLk+3mXFETSRZDKcRP/3+up4X4/J6zAvhqTsYa/2xbYd1PZoBh4v6aGXFWCMGFpxSc5k8VP6m1YWPllbt4DJmIy78QFxrRP0jzusImkI2XOqtfc1cp4nd7pNV6PiX8wx4VDCY1cwJy5fosSJyUWIP21v0fs+owYs+vrlQaZiN6NrkXmLmj9ogaSW5kXfGE4lnI1847QwW3w8v1A4ataOVa8Iyfq7t4Bnkt5ZA8lNEvHlH0Z0Z2gP47FPKIAM9wttV/QMyQMT0VEVor3i/Y9RfoRHfBBukDUFRESO/P desktop"
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC4ekww8I9AZBMJqfIskGjd1+UoUfxnt8F86jZc22nSR+kn6JEMQ1ONob7PRZu3BEGYfCc9w3zIJlpCpTgSupxLx1TAKuNOUzPWCHwwMpR5dI5hVzaQJbaBnDAFIfSS/Ccql4iuzdi+vzDrpITZxj84vQZtyQd+Nensou+pVtkNtwLjYLwD8N04xnHGX2XLcTrTaw5OQKKrAXeNJUJUhce/ibSFl46LV2s1hYdgYc9kQCdPI038w+NpkOKFI+WhfUZXBcH0pN0YDbKESoeuLfRgVgATIeV8Vcx80TJxunqN7qL2GUdMhwmLwGdEaf44tu5sTIU/ZaEX8Dm2VeBShoQKgH59Xp53yqzE9x6CjvvwUWPiZzL11CfxBQ7RMQ7gz9CIaK+GfUjJ32nlHsqd1UD1Ayk4bRP/avypbjClmUtVN9TzsEePzxfzkOgjfy/BjetZMZfIxa+JkgUH0tg2s1SRUmG56vEQHuIQHmSoDUAPfKF/f/85GcCKKVnImDSSTEc= mobile"
@@ -104,7 +105,6 @@
     (with pkgs; [
       vim          # CLI text editor
       git          # versioning control CLI tool
-      ceph-client  # Cephfs mounting library
       bottles      # Windows program emulation application
     ])
 

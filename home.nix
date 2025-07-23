@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, vars, ... }:
+{ pkgs, inputs, vars, ... }:
 
 {
   home.stateVersion = "24.11";
@@ -136,6 +136,7 @@
       firefox                    # web browser application
       brave                      # web browser application
       discord-canary             # chat application
+      vesktop                    # third-party Discord application
       obsidian                   # notes application
       transgui                   # Transmission management application
       jellyfin-media-player      # media player application
@@ -255,6 +256,7 @@
         initial-audio-sync = "no";
         fullscreen = "yes";
         autofit-larger = "80%x80%";
+        force-window = "yes";
         volume = "60";
         volume-max = "200";
         af = "lavfi=[loudnorm=I=-16:TP=-3:LRA=4],lavfi=[dynaudnorm=g=8:f=500:r=0.1:p=0.9]";

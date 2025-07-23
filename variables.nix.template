@@ -10,6 +10,7 @@
   git-email = "";
   ceph-ip = "";
   ceph-username = "";
+  ceph-secret = "";
   ceph-directory1 = "";
   ceph-filesystem1 = "";
   ceph-directory2 = "";
