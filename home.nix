@@ -9,10 +9,10 @@
   home.homeDirectory = "/home/${vars.username}";
 
   # set cursor size and dpi for 4k monitor
-  xresources.properties = {
-    "Xcursor.size" = 32;
-    "Xft.dpi" = 172;
-  };
+  # xresources.properties = {
+  #   "Xcursor.size" = 32;
+  #   "Xft.dpi" = 172;
+  # };
 
   home.file = {
 
@@ -196,7 +196,15 @@
         # CHECK REMOTE SSL CERTIFICATE
         function ssl-check () {
           if [ -z "$1" ]; then echo 'usage: ssl-check <url> [port] (default: 443)'; echo 'You need to provide a URL to connect to.'; return 1; fi
-          echo | nix shell nixpkgs#openssl -c openssl s_client -connect "''${1}:''${2:-443}" 2> /dev/null | nix shell nixpkgs#openssl -c openssl x509 -subject -noout -dates
+          echo | nix shell nixpkgs#openssl -c openssl s_client -connect "''${1}:''${2:-443}" 2> /dev/null | nix shell nixpkgs#openssl -c openssl x509 -noout -subject -dates -text | awk '
+          /^subject=/ { print }
+          /^notBefore=/ { print }
+          /^notAfter=/ { print }
+          /Subject Alternative Name/ {
+            getline
+            gsub(/^[ \t]+/, "", $0)
+            print "Subject Alternative Names: " $0
+          }'
         }
         # VSCODE OPEN REMOTE FOLDER
         function code-remote () {
