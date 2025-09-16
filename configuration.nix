@@ -119,6 +119,13 @@
 
     # Stable system packages
     (with inputs.pkgs-stable.legacyPackages.${vars.system}; [
+    ])
+
+    ++
+
+    # Pinned system packages
+    (with inputs."2025-04-05".legacyPackages.${vars.system}; [
+      ceph-client  # for ceph-fuse mounting - newer versions have build issues https://github.com/NixOS/nixpkgs/issues/442652
     ]);
 
   services = {
