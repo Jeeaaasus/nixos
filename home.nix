@@ -332,6 +332,7 @@
       profiles.default = {
         extensions = with pkgs.vscode-extensions; [
           jnoortheen.nix-ide           # Nix language syntax highlighting
+          timonwong.shellcheck         # shell linter
           ms-vscode-remote.remote-ssh  # open remote folder via ssh
           ms-python.python             # Python language syntax highlighting
         ];

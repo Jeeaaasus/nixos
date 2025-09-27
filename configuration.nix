@@ -92,10 +92,10 @@
     };
   };
 
-  security.sudo.extraRules= [{
+  security.sudo.extraRules = [{
     users = [ "${vars.username}" ];
     commands = [
-      {command = "/etc/profiles/per-user/${vars.username}/bin/nh os switch*"; options= [ "SETENV" "NOPASSWD" ];}
+      {command = "/etc/profiles/per-user/${vars.username}/bin/nh os switch*"; options = [ "SETENV" "NOPASSWD" ];}
     ];
   }];
 
@@ -125,7 +125,7 @@
 
     # Pinned system packages
     (with inputs."2025-04-05".legacyPackages.${vars.system}; [
-      ceph-client  # for ceph-fuse mounting - newer versions have build issues https://github.com/NixOS/nixpkgs/issues/442652
+      ceph         # for ceph-fuse mounting - newer versions have build issues https://github.com/NixOS/nixpkgs/issues/442652
     ]);
 
   services = {
@@ -156,7 +156,7 @@
     };
 
     open-webui = {
-      enable = true;
+      enable = false;
       host = "0.0.0.0";
     };
   };
