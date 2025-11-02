@@ -124,7 +124,7 @@
       nixfmt-rfc-style           # Nix formatting library
       caligula                   # disk imaging CLI tool
       mission-center             # general resource overview application
-      nvtopPackages.full         # graphics resource overview application
+      # nvtopPackages.full         # graphics resource overview application
       cpu-x                      # system information overview application
       devtoolbox                 # general conversion application
       firefox                    # web browser application
@@ -226,8 +226,12 @@
 
     git = {
       enable = true;
-      userName = "${vars.git-username}";
-      userEmail = "${vars.git-email}";
+      settings = {
+        user = {
+          name = "${vars.git-username}";
+          email = "${vars.git-email}";
+        };
+      };
       signing.format = "ssh";
     };
 
