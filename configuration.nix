@@ -150,13 +150,13 @@
     };
 
     ollama = {
-      enable = false;
-      acceleration = "rocm";
+      enable = true;
+      package = pkgs.ollama-rocm;
       rocmOverrideGfx = "11.0.0";
     };
 
     open-webui = {
-      enable = false;
+      enable = true;
       host = "0.0.0.0";
     };
   };
