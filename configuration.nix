@@ -8,11 +8,6 @@
     ./ceph
   ];
 
-  # TODO: remove when https://github.com/jellyfin/jellyfin-media-player/issues/282 is fixed
-  nixpkgs.config.permittedInsecurePackages = [
-    "qtwebengine-5.15.19"
-  ];
-
   nix.settings.auto-optimise-store = true;
   nix.gc = {
     automatic = true;

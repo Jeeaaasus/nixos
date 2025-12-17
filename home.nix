@@ -17,85 +17,6 @@
       source = ./input-remapper/ctrl-l+alt-l+v-paste-code-block.json;
     };
 
-    # Plex configuration
-    ".var/app/tv.plex.PlexDesktop/data/plex/mpv.txt" = {  # needs to manually be copied into "mpv.conf" as flatpak Plex dislikes symlinks
-    # ".local/share/plex/mpv.conf" = {
-      enable = true;
-      force = true;
-      text = ''
-        include="~~/profiles.conf"
-        af-pre=@dynaudnorm:lavfi=[dynaudnorm=g=8:f=500:r=0.1:p=0.9]
-      '';
-    };
-    ".var/app/tv.plex.PlexDesktop/data/plex/input.txt" = {  # needs to manually be copied into "input.conf" as flatpak Plex dislikes symlinks
-    # ".local/share/plex/input.conf" = {
-      enable = true;
-      force = true;
-      text = ''
-        # Video frame - Position
-        Ctrl+Alt+left   add video-pan-x +0.01
-        Ctrl+Alt+right  add video-pan-x -0.01
-        Ctrl+Alt+up     add video-pan-y +0.01
-        Ctrl+Alt+down   add video-pan-y -0.01
-
-        # Video frame - Flip
-        Ctrl+f          cycle-values vf hflip !hflip
-        Alt+f           cycle-values vf vflip !vflip
-        Ctrl+Alt+f      cycle-values vf hflip,vflip !hflip,!vflip
-
-        # Video frame - Zoom
-        Ctrl+Alt++      add video-zoom  +0.1
-        Ctrl+Alt+-      add video-zoom  -0.1
-        Ctrl+Alt+0      set video-zoom 0 ; set video-pan-x 0 ; set video-pan-y 0
-
-        # Audio
-        Alt+0           set audio-delay 0
-        Alt++           add audio-delay +0.01
-        Alt+-           add audio-delay -0.01
-
-        # Playback
-        Ctrl+right      frame-step
-        Ctrl+left       frame-back-step
-        0               set speed 1
-        *               set speed 1.75
-        +               add speed +0.1
-        -               add speed -0.1
-
-        # Other
-        I                       script-binding stats/display-stats-toggle
-      '';
-    };
-    ".var/app/tv.plex.PlexDesktop/data/plex/profiles.txt" = {  # needs to manually be copied into "profiles.conf" as flatpak Plex dislikes symlinks
-    # ".local/share/plex/profiles.conf" = {
-      enable = true;
-      force = true;
-      text = ''
-        [HDR]
-        profile-cond=hdr_metadata or (video-params/primaries == "bt.2020" and video-params/gamma == "pq")
-        target-trc=pq
-        target-peak=1000
-        d3d11-output-csp=pq
-        target-prim=bt.2020
-        hdr-compute-peak=yes
-        target-contrast=auto
-        video-output-levels=full
-        target-colorspace-hint=yes
-        d3d11-output-format=rgba32f
-
-        [2ch-audio-settings]
-        profile-cond=get("audio-params/channel-count") < 3
-        profile-restore=copy-equal
-        af-pre=@loudnorm:lavfi=[loudnorm=I=-16:TP=-3:LRA=4]
-
-        [streams]
-        profile-cond=p["estimated-vf-fps"]>58
-        # profile-cond=require 'mp.utils'.join_path(working_directory, path):match('\\nas-ssd\\')
-        profile-restore=copy-equal
-        initial-audio-sync=no
-        speed=1.75
-      '';
-    };
-
     # Jellyfin global media keys support
     ".local/share/jellyfinmediaplayer/scripts/mpris.so" = {
       source = builtins.fetchurl {
@@ -270,7 +191,7 @@
         force-seekable = "yes";
         demuxer-seekable-cache = "yes";
         demuxer-donate-buffer = "no";
-        demuxer-max-bytes = "16GiB";
+        demuxer-max-bytes = "32GiB";
         demuxer-max-back-bytes = "512MiB";
         # demuxer-force-retry-on-eof = "yes";
       };
@@ -318,7 +239,7 @@
       #   Ctrl+right              frame-step
       #   Ctrl+left               frame-back-step
       #   KP0                     set speed 1
-      #   KP_MULTIPLY             set speed 1.75
+      #   KP_MULTIPLY             set speed 2
       #   KP_ADD                  add speed +0.1
       #   KP_SUBTRACT             add speed -0.1
 
