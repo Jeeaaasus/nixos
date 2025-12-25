@@ -54,7 +54,7 @@
       vesktop                    # third-party Discord application
       obsidian                   # notes application
       transgui                   # Transmission management application
-      jellyfin-media-player      # media player application
+      jellyfin-desktop           # media player application
       spotify                    # music player application
       streamlink                 # Twitch viewing CLI tool
       streamlink-twitch-gui-bin  # Twitch viewing application
