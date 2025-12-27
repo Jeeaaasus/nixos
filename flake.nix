@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    "2025-11-23".url = "github:NixOS/nixpkgs?rev=ee09932cedcef15aaf476f9343d1dea2cb77e261";
     "2025-04-05".url = "github:NixOS/nixpkgs?rev=250b695f41e0e2f5afbf15c6b12480de1fe0001b";
   };
 
