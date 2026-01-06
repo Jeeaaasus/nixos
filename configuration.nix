@@ -113,14 +113,13 @@
     ++
 
     # Stable system packages
-    (with inputs.pkgs-stable.legacyPackages.${vars.system}; [
+    (with inputs."pkgs-stable".legacyPackages.${vars.system}; [
     ])
 
     ++
 
     # Pinned system packages
-    (with inputs."2025-04-05".legacyPackages.${vars.system}; [
-      ceph         # for ceph-fuse mounting - newer versions have build issues https://github.com/NixOS/nixpkgs/issues/442652
+    (with inputs."".legacyPackages.${vars.system}; [
     ]);
 
   services = {
@@ -140,21 +139,16 @@
       enableUdevRules = true;
     };
 
-    tailscale = {
-      enable = true;
-      useRoutingFeatures = "client";
-    };
+    # ollama = {
+    #   enable = true;
+    #   package = pkgs.ollama-rocm;
+    #   rocmOverrideGfx = "11.0.0";
+    # };
 
-    ollama = {
-      enable = true;
-      package = pkgs.ollama-rocm;
-      rocmOverrideGfx = "11.0.0";
-    };
-
-    open-webui = {
-      enable = true;
-      host = "0.0.0.0";
-    };
+    # open-webui = {
+    #   enable = true;
+    #   host = "0.0.0.0";
+    # };
   };
 
   programs = {
@@ -173,8 +167,8 @@
       gamescopeSession.enable = true;
     };
 
-    corectrl = {
-      enable = true;
-    };
+    # corectrl = {
+    #   enable = true;
+    # };
   };
 }
