@@ -61,8 +61,6 @@
       yt-dlp                     # YouTube download CLI tool
       wine                       # Windows emulation library
       lutris                     # Windows games emulation application
-      tailscale                  # VPN CLI tool
-      trayscale                  # Tailscale VPN application
       oniux                      # Tor CLI tool
       # fabric-ai
       # goverlay
