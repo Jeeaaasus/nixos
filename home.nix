@@ -42,7 +42,7 @@
       playerctl                  # media player control library
       kdePackages.kcalc          # calculator application
       nixd                       # Nix LSP library
-      nixfmt-rfc-style           # Nix formatting library
+      nixfmt                     # Nix formatting library
       caligula                   # disk imaging CLI tool
       mission-center             # general resource overview application
       # nvtopPackages.full         # graphics resource overview application
