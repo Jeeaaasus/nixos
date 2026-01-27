@@ -131,7 +131,6 @@
     duplicati = {
       enable = true;
       user = "root";
-      package = inputs."2025-11-23".legacyPackages.${vars.system}.duplicati;
     };
 
     input-remapper = {
