@@ -50,6 +50,7 @@
       devtoolbox                 # general conversion application
       firefox                    # web browser application
       brave                      # web browser application
+      element-desktop            # chat application
       discord-canary             # chat application
       vesktop                    # third-party Discord application
       obsidian                   # notes application

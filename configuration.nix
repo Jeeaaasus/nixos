@@ -94,6 +94,12 @@
     ];
   }];
 
+  # services.displayManager.plasma-login-manager = {
+  #   enable = true;
+  #   # settings = {
+  #   # };
+  # };
+
   services.displayManager.sddm = {
     enable = true;
     autoNumlock = true;
