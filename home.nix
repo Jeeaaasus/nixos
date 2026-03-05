@@ -63,6 +63,7 @@
       wine                       # Windows emulation library
       lutris                     # Windows games emulation application
       oniux                      # Tor CLI tool
+      pangolin-cli               # VPN client
       # fabric-ai
       # goverlay
       # mangohud
