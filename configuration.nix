@@ -144,16 +144,16 @@
       enableUdevRules = true;
     };
 
-    # ollama = {
-    #   enable = true;
-    #   package = pkgs.ollama-rocm;
-    #   rocmOverrideGfx = "11.0.0";
-    # };
+    ollama = {
+      enable = true;
+      package = pkgs.ollama-rocm;
+      rocmOverrideGfx = "11.0.0";
+    };
 
-    # open-webui = {
-    #   enable = true;
-    #   host = "0.0.0.0";
-    # };
+    open-webui = {
+      enable = true;
+      host = "0.0.0.0";
+    };
   };
 
   programs = {
