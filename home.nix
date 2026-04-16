@@ -45,7 +45,7 @@
       nixfmt                     # Nix formatting library
       caligula                   # disk imaging CLI tool
       mission-center             # general resource overview application
-      # nvtopPackages.full         # graphics resource overview application
+      amdgpu_top                 # graphics resource overview application
       cpu-x                      # system information overview application
       devtoolbox                 # general conversion application
       firefox                    # web browser application
