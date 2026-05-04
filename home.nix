@@ -1,4 +1,4 @@
-{ pkgs, inputs, vars, ... }:
+{ pkgs, vars, pkgs_stable, ... }:
 
 {
   home.stateVersion = "24.11";
@@ -51,17 +51,15 @@
       firefox                    # web browser application
       brave                      # web browser application
       element-desktop            # chat application
-      discord-canary             # chat application
+      # discord-canary             # chat application
       vesktop                    # third-party Discord application
       obsidian                   # notes application
       transgui                   # Transmission management application
-      jellyfin-desktop           # media player application
       spotify                    # music player application
       streamlink                 # Twitch viewing CLI tool
       streamlink-twitch-gui-bin  # Twitch viewing application
       yt-dlp                     # YouTube download CLI tool
       wine                       # Windows emulation library
-      lutris                     # Windows games emulation application
       oniux                      # Tor CLI tool
       pangolin-cli               # VPN client
       # fabric-ai
@@ -76,7 +74,9 @@
     ++
 
     # Stable packages
-    (with inputs.pkgs-stable.legacyPackages.${vars.system}; [
+    (with pkgs_stable; [
+      jellyfin-desktop           # media player application
+      lutris                     # Windows games emulation application
     ]);
 
   programs = {
@@ -93,7 +93,7 @@
       enableCompletion = true;
       shellAliases = {
         rebuild = ''cd ~/nix && sudo nh os switch --bypass-root-check path:.'';
-        update = ''cd ~/nix && sudo nh os switch --bypass-root-check --update --ask path:. && git add flake.lock && git commit -m "$(date +'%Y%m%d')" -m "$(nix shell nixpkgs#nvd -c nvd diff $(ls -dt /nix/var/nix/profiles/* | head -3 | tail -2 | tac) | tail +3 | awk '{gsub(/-${vars.hostname}/, sprintf("%${builtins.toString (builtins.stringLength vars.hostname + 1)}s", "")); print}')"'';
+        update = ''cd ~/nix && sudo nh os boot --bypass-root-check --update --ask path:. && git add flake.lock && git commit -m "$(date +'%Y%m%d')" -m "$(nix shell nixpkgs#nvd -c nvd diff $(ls -dt /nix/var/nix/profiles/* | head -3 | tail -2 | tac) | tail +3 | awk '{gsub(/-${vars.hostname}/, sprintf("%${builtins.toString (builtins.stringLength vars.hostname + 1)}s", "")); print}')"'';
         dev = ''nix develop'';
         gs = ''git status'';
         jq = ''nix shell nixpkgs#jq -c jq'';
@@ -169,6 +169,7 @@
         enter_accept = true;
         filter_mode = "host";
         inline_height = 0;
+        strip_trailing_whitespace = false;
       };
     };
 

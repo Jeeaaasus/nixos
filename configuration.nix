@@ -1,7 +1,9 @@
-{ pkgs, inputs, vars, ... }:
+{ pkgs, vars, pkgs_stable, ... }:
 
 {
   system.stateVersion = "24.11";
+
+  nixpkgs.config.allowUnfree = true;
 
   imports = [
     ./hardware-configuration.nix
@@ -15,7 +17,7 @@
     options = "--delete-older-than 14d";
   };
 
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  # nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   boot.loader.timeout = 10;
   boot.loader.systemd-boot = {
@@ -90,7 +92,7 @@
   security.sudo.extraRules = [{
     users = [ "${vars.username}" ];
     commands = [
-      {command = "/etc/profiles/per-user/${vars.username}/bin/nh os switch*"; options = [ "SETENV" "NOPASSWD" ];}
+      {command = "/etc/profiles/per-user/${vars.username}/bin/nh os boot*"; options = [ "SETENV" "NOPASSWD" ];}
     ];
   }];
 
@@ -113,19 +115,13 @@
     (with pkgs; [
       vim          # CLI text editor
       git          # versioning control CLI tool
-      bottles      # Windows program emulation application
     ])
 
     ++
 
     # Stable system packages
-    (with inputs."pkgs-stable".legacyPackages.${vars.system}; [
-    ])
-
-    ++
-
-    # Pinned system packages
-    (with inputs."".legacyPackages.${vars.system}; [
+    (with pkgs_stable; [
+      bottles      # Windows program emulation application
     ]);
 
   services = {
@@ -144,16 +140,16 @@
       enableUdevRules = true;
     };
 
-    ollama = {
-      enable = true;
-      package = pkgs.ollama-rocm;
-      rocmOverrideGfx = "11.0.0";
-    };
+    # ollama = {
+    #   enable = true;
+    #   package = pkgs.ollama-rocm;
+    #   rocmOverrideGfx = "11.0.0";
+    # };
 
-    open-webui = {
-      enable = true;
-      host = "0.0.0.0";
-    };
+    # open-webui = {
+    #   enable = true;
+    #   host = "0.0.0.0";
+    # };
   };
 
   programs = {

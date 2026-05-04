@@ -9,20 +9,32 @@
     };
   };
 
-  outputs =
-    { self, ... }@inputs:
+  outputs = { self,... }@inputs:
     let
       vars = import ./variables.nix;
+      system = vars.system;
+
+      mkPkgs = nixpkgsInput: import nixpkgsInput {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+        overlays = [
+        ];
+      };
+
+      pkgs_stable = mkPkgs inputs.pkgs-stable;
     in
 
     {
       nixosConfigurations.${vars.hostname} = inputs.nixpkgs.lib.nixosSystem {
-        system = vars.system;
+        inherit system;
+        specialArgs = {
+          inherit inputs vars pkgs_stable;
+        };
+
         modules = [
           {
-            nixpkgs = {
-              config.allowUnfree = true;
-            };
             nix.settings.experimental-features = [
               "nix-command"
               "flakes"
@@ -35,17 +47,12 @@
           {
             home-manager.users.${vars.username} = import ./home.nix;
             home-manager.extraSpecialArgs = {
-              inherit inputs;
-              inherit vars;
+              inherit inputs vars pkgs_stable;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
           }
         ];
-
-        specialArgs = {
-          inherit inputs vars;
-        };
       };
     };
 }
