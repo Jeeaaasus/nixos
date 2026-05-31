@@ -1,9 +1,7 @@
-{ pkgs, vars, pkgs_stable, ... }:
+{ pkgs, vars, pkgs_stable, pkgs_20260515,... }:
 
 {
   system.stateVersion = "24.11";
-
-  nixpkgs.config.allowUnfree = true;
 
   imports = [
     ./hardware-configuration.nix
@@ -115,13 +113,18 @@
     (with pkgs; [
       vim          # CLI text editor
       git          # versioning control CLI tool
+      bottles      # Windows program emulation application
+      lutris       # Windows games emulation application
     ])
 
     ++
 
-    # Stable system packages
     (with pkgs_stable; [
-      bottles      # Windows program emulation application
+    ])
+
+    ++
+
+    (with pkgs_20260515; [
     ]);
 
   services = {

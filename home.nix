@@ -1,4 +1,4 @@
-{ pkgs, vars, pkgs_stable, ... }:
+{ pkgs, vars, pkgs_stable, pkgs_20260515,... }:
 
 {
   home.stateVersion = "24.11";
@@ -50,8 +50,9 @@
       devtoolbox                 # general conversion application
       firefox                    # web browser application
       brave                      # web browser application
-      element-desktop            # chat application
+      # element-desktop            # chat application
       # discord-canary             # chat application
+      jellyfin-desktop           # media player application
       vesktop                    # third-party Discord application
       obsidian                   # notes application
       transgui                   # Transmission management application
@@ -59,7 +60,7 @@
       streamlink                 # Twitch viewing CLI tool
       streamlink-twitch-gui-bin  # Twitch viewing application
       yt-dlp                     # YouTube download CLI tool
-      wine                       # Windows emulation library
+      # wine                       # Windows emulation library
       oniux                      # Tor CLI tool
       pangolin-cli               # VPN client
       # fabric-ai
@@ -73,10 +74,12 @@
 
     ++
 
-    # Stable packages
     (with pkgs_stable; [
-      jellyfin-desktop           # media player application
-      lutris                     # Windows games emulation application
+    ])
+
+    ++
+
+    (with pkgs_20260515; [
     ]);
 
   programs = {
@@ -259,11 +262,14 @@
         extensions = with pkgs.vscode-extensions; [
           jnoortheen.nix-ide           # Nix language syntax highlighting
           timonwong.shellcheck         # shell linter
-          ms-vscode-remote.remote-ssh  # open remote folder via ssh
-          ms-python.python             # Python language syntax highlighting
+          # ms-vscode-remote.remote-ssh  # open remote folder via ssh
+          # ms-python.python             # Python language syntax highlighting
         ];
         userSettings = {
-          "extensions.autoCheckUpdates" = false;
+          extensions = {
+            autoCheckUpdates = false;
+            autoUpdate = false;
+          };
           "update.mode" = "none";
           "editor.tabSize" = 2;
           "nix.serverPath" = "nixd";
