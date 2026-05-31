@@ -113,8 +113,8 @@
     (with pkgs; [
       vim          # CLI text editor
       git          # versioning control CLI tool
-      bottles      # Windows program emulation application
-      lutris       # Windows games emulation application
+    #  bottles      # Windows program emulation application
+    #  lutris       # Windows games emulation application
     ])
 
     ++

@@ -7,8 +7,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # nixpkgs-patcher.url = "github:gepbird/nixpkgs-patcher";
-    pkgs-20260515.url = "github:NixOS/nixpkgs?rev=d233902339c02a9c334e7e593de68855ad26c4cb";
     pkgs-20260326.url = "github:NixOS/nixpkgs?rev=23a59f360e91b44f0cbeb11d260008a2081ebb19";
+    pkgs-20260515.url = "github:NixOS/nixpkgs?rev=d233902339c02a9c334e7e593de68855ad26c4cb";
   };
 
   outputs = { self, ... }@inputs:
@@ -54,7 +54,7 @@
           {
             home-manager.users.${vars.username} = import ./home.nix;
             home-manager.extraSpecialArgs = {
-              inherit inputs vars pkgs_stable;
+              inherit inputs vars pkgs_stable pkgs_20260326 pkgs_20260515;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

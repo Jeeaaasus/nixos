@@ -1,4 +1,4 @@
-{ pkgs, vars, pkgs_stable, pkgs_20260515,... }:
+{ pkgs, vars, pkgs_stable, pkgs_20260326,... }:
 
 {
   home.stateVersion = "24.11";
@@ -52,7 +52,6 @@
       brave                      # web browser application
       # element-desktop            # chat application
       # discord-canary             # chat application
-      jellyfin-desktop           # media player application
       vesktop                    # third-party Discord application
       obsidian                   # notes application
       transgui                   # Transmission management application
@@ -79,7 +78,8 @@
 
     ++
 
-    (with pkgs_20260515; [
+    (with pkgs_20260326; [
+      jellyfin-desktop           # media player application
     ]);
 
   programs = {
