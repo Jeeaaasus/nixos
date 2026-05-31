@@ -36,6 +36,22 @@
         "type": "github"
       }
     },
+    "pkgs-20260212": {
+      "locked": {
+        "lastModified": 1770907035,
+        "narHash": "sha256-k2LAEPaJgKgGVoqfDTcE142N04Of80oW78S6eX6TQoE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c53e5d1c2bfc2b905062022bee7380609f0f5029",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c53e5d1c2bfc2b905062022bee7380609f0f5029",
+        "type": "github"
+      }
+    },
     "pkgs-20260326": {
       "locked": {
         "lastModified": 1774527639,
@@ -88,6 +104,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "pkgs-20260212": "pkgs-20260212",
         "pkgs-20260326": "pkgs-20260326",
         "pkgs-20260515": "pkgs-20260515",
         "pkgs-stable": "pkgs-stable"

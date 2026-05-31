@@ -1,4 +1,4 @@
-{ pkgs, vars, pkgs_stable, pkgs_20260326,... }:
+{ pkgs, vars, pkgs_stable, pkgs_20260212, pkgs_20260326,... }:
 
 {
   home.stateVersion = "24.11";
@@ -47,7 +47,6 @@
       mission-center             # general resource overview application
       amdgpu_top                 # graphics resource overview application
       cpu-x                      # system information overview application
-      devtoolbox                 # general conversion application
       firefox                    # web browser application
       brave                      # web browser application
       # element-desktop            # chat application
@@ -78,7 +77,7 @@
 
     ++
 
-    (with pkgs_20260326; [
+    (with pkgs_20260212; [
       jellyfin-desktop           # media player application
     ]);
 
