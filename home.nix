@@ -255,38 +255,11 @@
       ];
     };
 
-    vscode = {
+    zed-editor = {
       enable = true;
-      profiles.default = {
-        extensions = with pkgs.vscode-extensions; [
-          jnoortheen.nix-ide           # Nix language syntax highlighting
-          timonwong.shellcheck         # shell linter
-          # ms-vscode-remote.remote-ssh  # open remote folder via ssh
-          # ms-python.python             # Python language syntax highlighting
-        ];
-        userSettings = {
-          extensions = {
-            autoCheckUpdates = false;
-            autoUpdate = false;
-          };
-          "update.mode" = "none";
-          "editor.tabSize" = 2;
-          "nix.serverPath" = "nixd";
-          "nix.enableLanguageServer" = true;
-          "nix.serverSettings" = {
-            "nixd" = {
-              "formatting" = {
-                "command" = [ "nixfmt" ];
-              };
-            };
-            # "options" = {
-            #   "nixos" = {
-            #     "expr" = "(builtins.getFlake \"/PATH/TO/FLAKE\").nixosConfigurations.CONFIGNAME.options";
-            #   };
-            # };
-          };
-        };
-      };
+      extensions = [
+        "nix"
+      ];
     };
 
     thunderbird = {
