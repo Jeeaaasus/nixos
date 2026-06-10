@@ -49,8 +49,6 @@
       cpu-x                      # system information overview application
       firefox                    # web browser application
       brave                      # web browser application
-      # element-desktop            # chat application
-      # discord-canary             # chat application
       vesktop                    # third-party Discord application
       obsidian                   # notes application
       transgui                   # Transmission management application
@@ -58,7 +56,6 @@
       streamlink                 # Twitch viewing CLI tool
       streamlink-twitch-gui-bin  # Twitch viewing application
       yt-dlp                     # YouTube download CLI tool
-      # wine                       # Windows emulation library
       oniux                      # Tor CLI tool
       pangolin-cli               # VPN client
       # fabric-ai
@@ -95,7 +92,7 @@
       enableCompletion = true;
       shellAliases = {
         rebuild = ''cd ~/nix && sudo nh os switch --bypass-root-check path:.'';
-        update = ''cd ~/nix && sudo nh os boot --bypass-root-check --update --ask path:. && git add flake.lock && git commit -m "$(date +'%Y%m%d')" -m "$(nix shell nixpkgs#nvd -c nvd diff $(ls -dt /nix/var/nix/profiles/* | head -3 | tail -2 | tac) | tail +3 | awk '{gsub(/-${vars.hostname}/, sprintf("%${builtins.toString (builtins.stringLength vars.hostname + 1)}s", "")); print}')"'';
+        update = ''cd ~/nix && sudo nh os boot --bypass-root-check --update --ask path:. && git add flake.lock && git commit -m "$(date +'%Y%m%d')" -m "$(nix shell nixpkgs#nvd -c nvd diff $(ls -dt /nix/var/nix/profiles/* | head -3 | tail -2 | tac) | tail +3 | awk '{gsub(/-${vars.hostname}/, sprintf("%${toString (builtins.stringLength vars.hostname + 1)}s", "")); print}')"'';
         dev = ''nix develop'';
         gs = ''git status'';
         jq = ''nix shell nixpkgs#jq -c jq'';
