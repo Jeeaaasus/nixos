@@ -29,11 +29,7 @@
 
   boot.kernelModules = [ "ceph" ];
 
-  boot.kernelParams = [
-    "ipv6.disable=1"
-    "amdgpu.aspm=0"
-    "amdgpu.runpm=0"
-  ];
+  boot.kernelParams = [ "ipv6.disable=1" ];
 
   services.xserver.xkb = {
     layout = if (vars ? keyboard-layout) && vars.keyboard-layout != "" then vars.keyboard-layout else "se";
