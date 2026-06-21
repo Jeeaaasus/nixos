@@ -25,7 +25,7 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
   boot.kernelModules = [ "ceph" ];
 
@@ -108,6 +108,12 @@
 
   services.desktopManager.plasma6.enable = true;
 
+  networking.firewall = {
+    allowedTCPPorts = [
+      8080  # open-webui
+    ];
+  };
+
   environment.systemPackages =
     # Unstable system packages
     (with pkgs; [
@@ -143,16 +149,16 @@
       enableUdevRules = true;
     };
 
-    # ollama = {
-    #   enable = true;
-    #   package = pkgs.ollama-rocm;
-    #   rocmOverrideGfx = "11.0.0";
-    # };
+    ollama = {
+      enable = true;
+      package = pkgs.ollama-rocm;
+      rocmOverrideGfx = "11.0.0";
+    };
 
-    # open-webui = {
-    #   enable = true;
-    #   host = "0.0.0.0";
-    # };
+    open-webui = {
+      enable = true;
+      host = "0.0.0.0";
+    };
   };
 
   programs = {
