@@ -1,4 +1,4 @@
-{ pkgs, vars, pkgs_stable, pkgs_20251218, pkgs_20260326,... }:
+{ pkgs, vars, pkgs_stable, pkgs_20260414,... }:
 
 {
   home.stateVersion = "24.11";
@@ -74,7 +74,7 @@
 
     ++
 
-    (with pkgs_20251218; [
+    (with pkgs_20260414; [
       jellyfin-desktop           # media player application
     ]);
 
