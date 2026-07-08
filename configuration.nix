@@ -163,6 +163,16 @@
 
   programs = {
 
+    # nix-ld = {
+    #   enable = true;
+    #   libraries = with pkgs; [
+    #     gamemode
+    #     glib
+    #     glib-networking
+    #     expat
+    #   ];
+    # };
+
     gamemode = {
       enable = true;
     };
@@ -179,9 +189,5 @@
         proton-ge-bin
       ];
     };
-
-    # corectrl = {
-    #   enable = true;
-    # };
   };
 }
