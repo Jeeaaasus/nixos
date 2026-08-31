@@ -94,17 +94,17 @@
     ];
   }];
 
-  # services.displayManager.plasma-login-manager = {
-  #   enable = true;
-  #   # settings = {
-  #   # };
-  # };
-
-  services.displayManager.sddm = {
+  services.displayManager.plasma-login-manager = {
     enable = true;
-    autoNumlock = true;
-    wayland.enable = true;
+    # settings = {
+    # };
   };
+
+  # services.displayManager.sddm = {
+  #   enable = true;
+  #   autoNumlock = true;
+  #   wayland.enable = true;
+  # };
 
   services.desktopManager.plasma6.enable = true;
 

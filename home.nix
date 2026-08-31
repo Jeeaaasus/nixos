@@ -33,6 +33,7 @@
     (with pkgs; [
       # (package.overrideAttrs (oldAttrs: rec { version = "app_version"; src = fetchPypi { inherit version; pname = "package"; hash = ""; }; }))  # version override example
       nh                         # NixOS management CLI tool
+      gping                      # latency CLI graphing tool
       screen                     # terminal multiplexer CLI tool
       zip                        # archive management library
       unzip                      # archive management library
@@ -51,7 +52,6 @@
       brave                      # web browser application
       vesktop                    # third-party Discord application
       obsidian                   # notes application
-      transgui                   # Transmission management application
       spotify                    # music player application
       streamlink                 # Twitch viewing CLI tool
       streamlink-twitch-gui-bin  # Twitch viewing application
@@ -70,6 +70,7 @@
     ++
 
     (with pkgs_stable; [
+      transgui                   # Transmission management application
     ])
 
     ++
