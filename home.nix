@@ -54,7 +54,6 @@
       obsidian                   # notes application
       spotify                    # music player application
       streamlink                 # Twitch viewing CLI tool
-      streamlink-twitch-gui-bin  # Twitch viewing application
       yt-dlp                     # YouTube download CLI tool
       oniux                      # Tor CLI tool
       pangolin-cli               # VPN client
@@ -70,6 +69,7 @@
     ++
 
     (with pkgs_stable; [
+      streamlink-twitch-gui-bin  # Twitch viewing application
       transgui                   # Transmission management application
     ])
 
