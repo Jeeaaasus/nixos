@@ -50,6 +50,7 @@
       cpu-x                      # system information overview application
       firefox                    # web browser application
       brave                      # web browser application
+      jellyfin-desktop           # media player application
       vesktop                    # third-party Discord application
       obsidian                   # notes application
       spotify                    # music player application
@@ -76,7 +77,6 @@
     ++
 
     (with pkgs_20260414; [
-      jellyfin-desktop           # media player application
     ]);
 
   programs = {
