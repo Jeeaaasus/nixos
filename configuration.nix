@@ -17,7 +17,7 @@
 
   # nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
-  boot.loader.timeout = 10;
+  boot.loader.timeout = 2;
   boot.loader.systemd-boot = {
     enable = true;
     configurationLimit = 32;
